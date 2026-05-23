@@ -1,120 +1,47 @@
-🚀 Python CI/CD Project – Automated DevOps Pipeline
-This repository contains a Python application integrated with a complete CI/CD pipeline using modern DevOps tools such as Jenkins, Docker, SonarQube, Kubernetes, and ArgoCD.
-It demonstrates how to automate the entire software delivery lifecycle from code → build → test → quality scan → containerization → deployment.
+# Python Flask App — Jenkins CI/CD
 
-📌 Project Overview
-This project showcases:
+A simple Python Flask web application with full Jenkins CI/CD pipeline.
 
-Python application with modular structure
+## Project Structure
 
-Automated CI pipeline using Jenkins
+```
+python-jenkins-app/
+├── app.py                  # Main Flask application
+├── requirements.txt        # Python dependencies
+├── Dockerfile              # Docker image build
+├── Jenkinsfile             # Jenkins pipeline
+├── .gitignore
+├── templates/
+│   ├── index.html          # Home page
+│   └── about.html          # About page
+└── tests/
+    └── test_app.py         # Unit tests
+```
 
-Unit testing with pytest
+## How to Run Locally
 
-Code quality scanning using SonarQube
-
-Docker image build & push
-
-Kubernetes deployment (YAML or Helm)
-
-GitOps deployment using ArgoCD
-
-End‑to‑end automation triggered on every Git commit
-
-Perfect for DevOps learning, interviews, and portfolio demonstration.
-
-📁 Repository Structure
-Code
-Python-CICD-PROJECT/
-│
-├── app/                 # Python application source code
-│   ├── __init__.py
-│   └── main.py
-│
-├── tests/               # Unit tests (pytest)
-│   └── test_app.py
-│
-├── requirements.txt     # Python dependencies
-├── Dockerfile           # Docker build instructions
-├── Jenkinsfile          # CI/CD pipeline definition
-├── deployment/          # Kubernetes manifests or Helm chart
-└── README.md            # Project documentation
-🧪 Running the Application
-1. Install dependencies
-bash
+```bash
+# Install dependencies
 pip install -r requirements.txt
-2. Run the application
-bash
-python app/main.py
-3. Run tests
-bash
-pytest -v
-🐳 Docker Support
-Build Docker image
-bash
-docker build -t python-cicd-app .
-Run container
-bash
-docker run -p 5000:5000 python-cicd-app
-⚙️ Jenkins CI/CD Pipeline
-The Jenkins pipeline includes:
+
+# Run app
+python app.py
+```
+
+Visit http://localhost:5000
+
+## Jenkins Pipeline Stages
 
 1. Checkout Code
-Pulls the latest code from GitHub.
+2. Setup Python Environment
+3. Code Quality Check (flake8)
+4. Run Unit Tests (pytest)
+5. Build Docker Image
+6. Deploy Application
+7. Health Check
 
-2. Install Dependencies
-bash
-pip install -r requirements.txt
-3. Run Unit Tests
-Ensures code stability.
+## Requirements
 
-4. SonarQube Scan
-Static code analysis for bugs, vulnerabilities, and code smells.
-
-5. Docker Build & Push
-Builds and pushes the image to Docker Hub or AWS ECR.
-
-6. Deploy to Kubernetes
-Using:
-
-YAML manifests
-or
-
-Helm chart
-or
-
-ArgoCD GitOps automation
-
-☸️ Kubernetes Deployment
-Apply YAML files:
-bash
-kubectl apply -f deployment/
-Or deploy using Helm:
-bash
-helm install python-cicd-app ./deployment
-Or let ArgoCD auto-sync:
-Commit → ArgoCD detects change → Deployment updates automatically
-
-🧰 Technologies Used
-Category	Tools
-Language	Python
-CI/CD	Jenkins
-Testing	pytest
-Quality	SonarQube
-Containers	Docker
-Deployment	Kubernetes, Helm, ArgoCD
-Cloud	AWS EC2 / EKS (optional)
-
-
-🎯 Purpose of This Project
-This project helps you demonstrate:
-
-Python development skills
-
-Real DevOps CI/CD automation
-
-Docker & Kubernetes deployment
-
-GitOps workflow using ArgoCD
-
-Cloud‑ready application delivery
+- Jenkins with Docker installed
+- Python 3.9+
+- Docker
