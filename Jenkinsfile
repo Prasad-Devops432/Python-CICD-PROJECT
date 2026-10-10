@@ -10,8 +10,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'main',
-                    url: 'https://github.com/Prasad-Devops432/Portfolio-Project-.git'
+                checkout scm
             }
         }
 
@@ -39,7 +38,7 @@ pipeline {
             steps {
                 sh '''
                 . venv/bin/activate
-                pytest tests/ -v --cov=app --cov-report=xml --cov-report=term
+                pytest test_app.py -v --cov=app --cov-report=xml --cov-report=term
                 '''
             }
         }
